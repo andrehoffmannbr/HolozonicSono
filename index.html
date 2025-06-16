@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holozonic - Seu Sono Pode Estar Gritando por Socorro | Polissonografia Domiciliar</title>
+    <meta name="description" content="Descubra se você tem apneia do sono sem sair de casa. Exame domiciliar com precisão de 90% e laudo médico incluso. Apenas 60 vagas disponíveis.">
+    <meta name="keywords" content="apneia do sono, polissonografia domiciliar, ronco, exame do sono, holozonic">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #2d004d;
+            --primary-blue: #001f3f;
+            --accent-purple: #6a0dad;
+            --accent-blue: #0074cc;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333;
+            --gold: #ffd700;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-text .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--gold), #ffed4e);
+            color: var(--primary-purple);
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .hero-visual {
+            text-align: center;
+        }
+
+        .hero-visual img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Urgency Banner */
+        .urgency-banner {
+            background: var(--gold);
+            color: var(--primary-purple);
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-purple);
+        }
+
+        /* Transformation Section */
+        .transformation-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .transformation-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .transformation-benefits {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .transformation-benefits li {
+            padding: 10px 0;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+
+        .transformation-visual img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Statistics Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 20px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--gold);
+            transform: scale(1.05);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--primary-purple);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: var(--primary-purple);
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .price-small {
+            font-size: 1rem;
+            color: var(--dark-gray);
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            color: var(--dark-gray);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-purple);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .submit-button {
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 0, 77, 0.3);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-purple);
+            color: white;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .transformation-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-purple);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            color: white;
+            padding: 60px 0;
+        }
+
+        .bonus-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bonus-list li {
+            padding: 15px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bonus-list li::before {
+            content: "✅";
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        🚨 CAMPANHA DE LANÇAMENTO - APENAS 60 VAGAS DISPONÍVEIS! 🚨
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-text">
+                    <h1>Seu Sono Pode Estar <span class="highlight">Gritando por Socorro</span></h1>
+                    <p class="subtitle">
+                        Você Ronca, Acorda Cansado ou Tem Sono Durante o Dia? 
+                        Você pode estar vivendo com <strong>Apneia do Sono</strong> — um inimigo silencioso que sobrecarrega o seu coração todas as noites.
+                    </p>
+                    <a href="#formulario" class="cta-button">
+                        Quero Garantir Minha Avaliação Agora
+                    </a>
+                </div>
+                <div class="hero-visual">
+                    <img src="img/insonia.jpg" alt="Pessoa com problemas de sono - Insônia e Apneia do Sono">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O Problema é Mais Sério do Que Você Imagina</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Mais de 90% das pessoas com apneia do sono não sabem que têm o problema.
+                E o que começa como um simples ronco pode evoluir para hipertensão, infartos, AVC e até morte súbita.
+            </p>
+            
+            <div class="problem-grid">
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="problem-icon">😴</div>
+                    <h3>Ronco Intenso</h3>
+                    <p>Interrupções respiratórias durante o sono que sobrecarregam o coração</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="problem-icon">😵</div>
+                    <h3>Cansaço Extremo</h3>
+                    <p>Acordar sem energia, mesmo após horas de sono</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="problem-icon">💔</div>
+                    <h3>Risco Cardíaco</h3>
+                    <p>Aumenta drasticamente o risco de infartos e AVC</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section class="transformation-section">
+        <div class="container">
+            <div class="transformation-content" data-aos="fade-up">
+                <div class="transformation-text">
+                    <h2 class="section-title">Imagine Acordar Revigorado Todos os Dias</h2>
+                    <p class="section-subtitle">
+                        Com o diagnóstico correto e o tratamento adequado, você pode transformar suas noites e recuperar sua qualidade de vida.
+                        Pessoas que trataram a apneia do sono relatam:
+                    </p>
+                    <ul class="transformation-benefits">
+                        <li>✅ Mais energia e disposição durante o dia</li>
+                        <li>✅ Melhor concentração no trabalho</li>
+                        <li>✅ Relacionamentos mais harmoniosos</li>
+                        <li>✅ Redução significativa dos riscos cardíacos</li>
+                        <li>✅ Sono verdadeiramente reparador</li>
+                    </ul>
+                </div>
+                <div class="transformation-visual">
+                    <img src="img/backup.jpg" alt="Pessoa revigorada e com qualidade de vida após tratamento do sono">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid" data-aos="fade-up">
+                <div class="stat-item">
+                    <h3>90%</h3>
+                    <p>Dos casos não são diagnosticados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3x</h3>
+                    <p>Maior risco de problemas cardíacos</p>
+                </div>
+                <div class="stat-item">
+                    <h3>48h</h3>
+                    <p>Para receber seu laudo completo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Como Funciona o Exame Domiciliar</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Agora você pode descobrir se sofre desse mal sem sair de casa, com um exame moderno, 
+                validado por inteligência artificial e com laudo médico incluso.
+            </p>
+            
+            <div class="steps-grid">
+                <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">1</div>
+                    <h3>Você agenda e faz o pagamento</h3>
+                    <p>Processo simples e rápido, sem burocracia</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">2</div>
+                    <h3>Retira o dispositivo</h3>
+                    <p>Na clínica ou recebe em casa (dependendo da região)</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">3</div>
+                    <h3>Dorme com o dispositivo</h3>
+                    <p>Uma noite no conforto da sua casa</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="step-number">4</div>
+                    <h3>Recebe o laudo médico</h3>
+                    <p>Resultado completo e explicação personalizada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What the Exam Evaluates -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O que o Exame Avalia</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                📊 Precisão acima de 90% com tecnologia validada cientificamente
+            </p>
+            
+            <div class="problem-grid">
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="problem-icon">🫁</div>
+                    <h3>Índice de Dessaturação</h3>
+                    <p>Quedas na oxigenação durante o sono</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="problem-icon">🔊</div>
+                    <h3>Frequência e Intensidade do Ronco</h3>
+                    <p>Análise completa dos padrões de ronco</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="problem-icon">💓</div>
+                    <h3>Risco de Fibrilação Atrial</h3>
+                    <p>Detecção de arritmias cardíacas</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="problem-icon">⏱️</div>
+                    <h3>Qualidade do Sono</h3>
+                    <p>Tempo total e eficiência do sono</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="problem-icon">📈</div>
+                    <h3>Padrões Cardíacos</h3>
+                    <p>Monitoramento da frequência cardíaca noturna</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="problem-icon">⏸️</div>
+                    <h3>Pausas Respiratórias</h3>
+                    <p>Detecção de apneias e hipopneias</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="bonus-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;" data-aos="fade-up">🎁 Bônus Exclusivos para a Consulta Completa</h2>
+            <ul class="bonus-list" data-aos="fade-up" data-aos-delay="200">
+                <li>1 unidade de óleo ozonizado com blend terapêutico (escolha entre maracujá, lavanda, camomila ou bergamota)</li>
+                <li>Indicação personalizada de frequências sonoras para indução do sono profundo</li>
+                <li>Acompanhamento de 30 dias para mensuração de progresso e sintomas</li>
+                <li>Consulta explicativa com profissional da clínica (presencial ou online)</li>
+                <li>E-book exclusivo "Sobre o Sono": ciência, espiritualidade e autocuidado noturno</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Investimento</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Exame + Laudo</h3>
+                    <div class="price">R$ 290<span class="price-small">,00</span></div>
+                    <p class="price-small">à vista</p>
+                    <p style="margin: 10px 0;">ou</p>
+                    <p><strong>3x de R$ 106,33</strong></p>
+                    <ul style="text-align: left; margin: 20px 0; list-style: none;">
+                        <li>✅ Dispositivo por 1 noite</li>
+                        <li>✅ Laudo médico completo</li>
+                        <li>✅ Análise por IA avançada</li>
+                        <li>✅ Suporte técnico</li>
+                    </ul>
+                    <a href="#formulario" class="cta-button" style="display: block; text-align: center; margin-top: 20px; text-decoration: none;">Escolher Este Plano</a>
+                </div>
+                
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="300">
+                    <div class="featured-badge">MAIS POPULAR</div>
+                    <h3>Completo + Bônus</h3>
+                    <div class="price">R$ 490<span class="price-small">,00</span></div>
+                    <p class="price-small">à vista</p>
+                    <p style="margin: 10px 0;">ou</p>
+                    <p><strong>3x de R$ 179,66</strong></p>
+                    <ul style="text-align: left; margin: 20px 0; list-style: none;">
+                        <li>✅ Tudo do plano anterior</li>
+                        <li>✅ Óleo ozonizado terapêutico</li>
+                        <li>✅ Frequências sonoras personalizadas</li>
+                        <li>✅ Acompanhamento 30 dias</li>
+                        <li>✅ Consulta explicativa</li>
+                        <li>✅ E-book exclusivo</li>
+                    </ul>
+                    <a href="#formulario" class="cta-button" style="display: block; text-align: center; margin-top: 20px; text-decoration: none;">Escolher Este Plano</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="formulario">
+        <div class="container">
+            <h2 class="section-title" style="color: white;" data-aos="fade-up">Formulário de Pré-Anamnese</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="100">
+                Preencha os dados abaixo para que nossa equipe entre em contato com você
+                <br><small>(seus dados são protegidos pela LGPD)</small>
+            </p>
+            
+            <div class="form-container" data-aos="fade-up" data-aos-delay="200">
+                <form id="sleepForm">
+                    <h3 style="color: var(--primary-purple); margin-bottom: 20px;">👤 DADOS PESSOAIS</h3>
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome completo *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nascimento">Data de nascimento *</label>
+                        <input type="date" id="nascimento" name="nascimento" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="idade">Idade *</label>
+                        <input type="number" id="idade" name="idade" min="18" max="100" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="genero">Gênero *</label>
+                        <select id="genero" name="genero" required>
+                            <option value="">Selecione...</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp *</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="endereco">Endereço completo *</label>
+                        <textarea id="endereco" name="endereco" rows="3" placeholder="Rua, Número, Bairro, Cidade, Estado" required></textarea>
+                    </div>
+
+                    <h3 style="color: var(--primary-purple); margin: 40px 0 20px;">🛌 SINTOMAS RELACIONADOS AO SONO</h3>
+                    
+                    <div class="form-group">
+                        <label>Você apresenta algum dos sintomas abaixo? (marque os que se aplicam):</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ronco" name="sintomas[]" value="ronco">
+                                <label for="ronco">Ronco</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="paradas" name="sintomas[]" value="paradas">
+                                <label for="paradas">Paradas respiratórias</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cansaco" name="sintomas[]" value="cansaco">
+                                <label for="cansaco">Cansaço durante o dia</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="dor-cabeca" name="sintomas[]" value="dor-cabeca">
+                                <label for="dor-cabeca">Dor de cabeça ao acordar</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="boca-seca" name="sintomas[]" value="boca-seca">
+                                <label for="boca-seca">Boca seca ao despertar</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="insonia" name="sintomas[]" value="insonia">
+                                <label for="insonia">Insônia</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="horas-sono">Quantas horas dorme por noite, em média? *</label>
+                        <input type="number" id="horas-sono" name="horas-sono" min="3" max="12" step="0.5" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sono-reparador">Você sente que seu sono é reparador? *</label>
+                        <select id="sono-reparador" name="sono-reparador" required>
+                            <option value="">Selecione...</option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                            <option value="as-vezes">Às vezes</option>
+                        </select>
+                    </div>
+
+                    <h3 style="color: var(--primary-purple); margin: 40px 0 20px;">💬 OBJETIVO DA AVALIAÇÃO</h3>
+                    
+                    <div class="form-group">
+                        <label for="motivacao">Qual sua principal motivação para buscar esta avaliação? *</label>
+                        <textarea id="motivacao" name="motivacao" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="plano">Qual plano deseja contratar? *</label>
+                        <select id="plano" name="plano" required>
+                            <option value="">Selecione...</option>
+                            <option value="basico">Exame + Laudo (R$ 290,00)</option>
+                            <option value="completo">Completo + Bônus (R$ 490,00)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autorizacao" name="autorizacao" required>
+                            <label for="autorizacao">Autorizo o envio de informações, orientações terapêuticas e conteúdos educativos da clínica via WhatsApp e e-mail. *</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">
+                        Enviar Formulário e Garantir Minha Vaga
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h3>Holozonic - Saúde Integrativa e Tecnologia para o Bem-Estar</h3>
+            <div class="footer-links">
+                <a href="#politica">Política de Privacidade</a>
+                <a href="#termos">Termos de Uso</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <p>CNPJ: 00.000.000/0001-00</p>
+            <p>&copy; 2024 Holozonic. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20exame%20do%20sono!" class="whatsapp-float" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.687"/>
+        </svg>
+    </a>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Form submission
+        document.getElementById('sleepForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Simple validation
+            const requiredFields = ['nome', 'email', 'whatsapp', 'plano'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!data[field]) {
+                    isValid = false;
+                    document.getElementById(field).style.borderColor = 'red';
+                } else {
+                    document.getElementById(field).style.borderColor = '#e0e0e0';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // Success message
+            alert('Formulário enviado com sucesso! Nossa equipe entrará em contato em breve.');
+            
+            // Reset form
+            this.reset();
+            
+            // In a real application, you would send this data to your server
+            console.log('Form data:', data);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update age field when birth date changes
+        document.getElementById('nascimento').addEventListener('change', function() {
+            const birthDate = new Date(this.value);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            document.getElementById('idade').value = age;
+        });
+
+        // WhatsApp phone number formatting
+        document.getElementById('whatsapp').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            } else if (value.length >= 7) {
+                value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+            } else if (value.length >= 3) {
+                value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html> 
