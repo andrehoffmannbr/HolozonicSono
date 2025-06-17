@@ -1038,6 +1038,8 @@
         // Funções de pagamento Mercado Pago
         async function comprarPlanoBasico(event) {
             console.log('🛒 Iniciando compra do plano básico...');
+            console.log('🔍 Event:', event);
+            console.log('🔍 Target:', event.target);
             
             try {
                 // Mostrar loading
@@ -1047,7 +1049,7 @@
                 button.disabled = true;
 
                 // Fazer requisição para criar pagamento
-                const response = await fetch('/api/criar-pagamento-basico', {
+                const response = await fetch('/api/criar-pagamento-basico?v=' + Date.now(), {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1081,6 +1083,8 @@
 
         async function comprarPlanoCompleto(event) {
             console.log('🛒 Iniciando compra do plano completo...');
+            console.log('🔍 Event:', event);
+            console.log('🔍 Target:', event.target);
             
             try {
                 // Mostrar loading
@@ -1090,7 +1094,7 @@
                 button.disabled = true;
 
                 // Fazer requisição para criar pagamento
-                const response = await fetch('/api/criar-pagamento-completo', {
+                const response = await fetch('/api/criar-pagamento-completo?v=' + Date.now(), {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1122,5 +1126,6 @@
             }
         }
     </script>
+    <!-- Version: v2024-06-17-16h15m - Cache buster -->
 </body>
 </html> 
