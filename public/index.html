@@ -759,7 +759,7 @@
                         <li>✅ Análise por Profissional Especialista em sono</li>
                         <li>✅ Suporte técnico</li>
                     </ul>
-                    <button onclick="comprarPlanoBasico()" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
+                    <button onclick="comprarPlanoBasico(event)" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
                 </div>
                 
                 <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="300">
@@ -777,7 +777,7 @@
                         <li>✅ Consulta explicativa</li>
                         <li>✅ E-book exclusivo</li>
                     </ul>
-                    <button onclick="comprarPlanoCompleto()" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
+                    <button onclick="comprarPlanoCompleto(event)" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
                 </div>
             </div>
         </div>
@@ -1036,7 +1036,7 @@
         });
 
         // Funções de pagamento Mercado Pago
-        async function comprarPlanoBasico() {
+        async function comprarPlanoBasico(event) {
             console.log('🛒 Iniciando compra do plano básico...');
             
             try {
@@ -1047,16 +1047,22 @@
                 button.disabled = true;
 
                 // Fazer requisição para criar pagamento
-                const response = await fetch('/criar-pagamento-basico', {
+                const response = await fetch('/api/criar-pagamento-basico', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 });
 
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('❌ Resposta do servidor:', errorText);
+                    throw new Error(`Erro ${response.status}: ${response.statusText}`);
+                }
+
                 const data = await response.json();
 
-                if (response.ok && data.init_point) {
+                if (data.init_point) {
                     console.log('✅ Redirecionando para pagamento...');
                     // Redirecionar para o checkout do Mercado Pago
                     window.location.href = data.init_point;
@@ -1073,7 +1079,7 @@
             }
         }
 
-        async function comprarPlanoCompleto() {
+        async function comprarPlanoCompleto(event) {
             console.log('🛒 Iniciando compra do plano completo...');
             
             try {
@@ -1084,16 +1090,22 @@
                 button.disabled = true;
 
                 // Fazer requisição para criar pagamento
-                const response = await fetch('/criar-pagamento-completo', {
+                const response = await fetch('/api/criar-pagamento-completo', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 });
 
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('❌ Resposta do servidor:', errorText);
+                    throw new Error(`Erro ${response.status}: ${response.statusText}`);
+                }
+
                 const data = await response.json();
 
-                if (response.ok && data.init_point) {
+                if (data.init_point) {
                     console.log('✅ Redirecionando para pagamento...');
                     // Redirecionar para o checkout do Mercado Pago
                     window.location.href = data.init_point;
