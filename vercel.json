@@ -1,12 +1,4 @@
 {
-  "functions": {
-    "api/criar-pagamento-basico.js": {
-      "runtime": "nodejs18.x"
-    },
-    "api/criar-pagamento-completo.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/",
