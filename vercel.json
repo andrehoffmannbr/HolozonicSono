@@ -1,0 +1,32 @@
+{
+  "functions": {
+    "api/criar-pagamento-basico.js": {
+      "runtime": "nodejs18.x"
+    },
+    "api/criar-pagamento-completo.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/public/index.html"
+    },
+    {
+      "source": "/sucesso.html",
+      "destination": "/public/sucesso.html"
+    },
+    {
+      "source": "/erro.html",
+      "destination": "/public/erro.html"
+    },
+    {
+      "source": "/pendente.html",
+      "destination": "/public/pendente.html"
+    },
+    {
+      "source": "/img/(.*)",
+      "destination": "/public/img/$1"
+    }
+  ]
+} 
