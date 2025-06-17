@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Aprovado - Holozonic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #2d004d;
+            --primary-blue: #001f3f;
+            --accent-purple: #6a0dad;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --gold: #ffd700;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .success-container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .success-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .success-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .calendar-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .calendar-title {
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .calendar-iframe {
+            width: 100%;
+            height: 600px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .instructions h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .instructions ul {
+            text-align: left;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .instructions li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary-purple);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .success-title {
+                font-size: 2rem;
+            }
+            
+            .calendar-iframe {
+                height: 400px;
+            }
+            
+            .calendar-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">🎉</div>
+        <h1 class="success-title">Pagamento Aprovado!</h1>
+        <p class="success-subtitle">
+            Parabéns! Seu pagamento foi processado com sucesso.<br>
+            Agora você pode agendar seu exame do sono.
+        </p>
+    </div>
+
+    <div class="calendar-container">
+        <h2 class="calendar-title">📅 Agende Seu Exame do Sono</h2>
+        
+        <iframe 
+            src="https://calendar.google.com/calendar/embed?src=holozonic%40gmail.com&ctz=America%2FSao_Paulo"
+            class="calendar-iframe"
+            frameborder="0" 
+            scrolling="no">
+        </iframe>
+        
+        <div class="instructions">
+            <h3>🔔 Próximos Passos:</h3>
+            <ul>
+                <li>Selecione uma data disponível no calendário acima</li>
+                <li>Nossa equipe entrará em contato para confirmar o horário</li>
+                <li>Você receberá instruções detalhadas por email</li>
+                <li>O dispositivo será entregue no endereço cadastrado</li>
+                <li>Após o exame, receba seu laudo em até 48h</li>
+            </ul>
+        </div>
+    </div>
+
+    <a href="/" class="back-button">Voltar à Página Inicial</a>
+
+    <script>
+        // Adiciona animação de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.success-container');
+            const calendar = document.querySelector('.calendar-container');
+            
+            setTimeout(() => {
+                container.style.opacity = '0';
+                container.style.transform = 'translateY(-20px)';
+                container.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    container.style.opacity = '1';
+                    container.style.transform = 'translateY(0)';
+                }, 100);
+            }, 100);
+            
+            setTimeout(() => {
+                calendar.style.opacity = '0';
+                calendar.style.transform = 'translateY(20px)';
+                calendar.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    calendar.style.opacity = '1';
+                    calendar.style.transform = 'translateY(0)';
+                }, 100);
+            }, 300);
+        });
+        
+        // Console log para debug
+        console.log('✅ Página de sucesso carregada');
+        console.log('📅 Google Calendar integrado');
+    </script>
+</body>
+</html> 

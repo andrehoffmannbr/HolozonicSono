@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Pendente - Holozonic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #2d004d;
+            --primary-blue: #001f3f;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --gold: #ffd700;
+            --orange: #f39c12;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .pending-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 50px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .pending-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--orange);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .pending-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--orange);
+        }
+
+        .pending-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .pending-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pending-info h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .pending-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pending-info li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .pending-info li::before {
+            content: "⏳";
+            position: absolute;
+            left: 0;
+        }
+
+        .status-check {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .button-primary {
+            background: var(--gold);
+            color: var(--primary-purple);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .pending-title {
+                font-size: 2rem;
+            }
+            
+            .pending-container {
+                padding: 30px 20px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pending-container">
+        <div class="pending-icon">⏳</div>
+        <h1 class="pending-title">Pagamento Pendente</h1>
+        <p class="pending-subtitle">
+            Seu pagamento está sendo processado.<br>
+            Aguarde a confirmação para liberar o acesso.
+        </p>
+
+        <div class="status-check">
+            <strong>📋 Informação Importante:</strong><br>
+            Alguns métodos de pagamento podem demorar até 3 dias úteis para processar.
+            Você receberá uma confirmação por email assim que o pagamento for aprovado.
+        </div>
+
+        <div class="pending-info">
+            <h3>🔄 O que acontece agora:</h3>
+            <ul>
+                <li>Estamos processando seu pagamento</li>
+                <li>Você receberá um email de confirmação</li>
+                <li>Nossa equipe entrará em contato em breve</li>
+                <li>O acesso será liberado automaticamente</li>
+            </ul>
+        </div>
+
+        <div class="buttons">
+            <a href="/" class="button button-primary">Voltar ao Início</a>
+            <a href="https://wa.me/5511999999999?text=Olá,%20meu%20pagamento%20está%20pendente" class="button button-secondary">Falar com Suporte</a>
+        </div>
+    </div>
+
+    <script>
+        console.log('⏳ Página de pagamento pendente carregada');
+        
+        // Adiciona animação de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.pending-container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            container.style.transition = 'all 0.6s ease';
+            
+            setTimeout(() => {
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+
+        // Atualiza a página a cada 5 minutos para verificar status
+        setInterval(() => {
+            console.log('🔄 Verificando status do pagamento...');
+            // Aqui você pode adicionar uma chamada AJAX para verificar o status
+        }, 300000); // 5 minutos
+    </script>
+</body>
+</html> 

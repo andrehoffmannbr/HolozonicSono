@@ -759,7 +759,7 @@
                         <li>✅ Análise por Profissional Especialista em sono</li>
                         <li>✅ Suporte técnico</li>
                     </ul>
-                    <a href="#formulario" class="cta-button" style="display: block; text-align: center; margin-top: 20px; text-decoration: none;">Escolher Este Plano</a>
+                    <button onclick="comprarPlanoBasico()" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
                 </div>
                 
                 <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="300">
@@ -777,7 +777,7 @@
                         <li>✅ Consulta explicativa</li>
                         <li>✅ E-book exclusivo</li>
                     </ul>
-                    <a href="#formulario" class="cta-button" style="display: block; text-align: center; margin-top: 20px; text-decoration: none;">Escolher Este Plano</a>
+                    <button onclick="comprarPlanoCompleto()" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
                 </div>
             </div>
         </div>
@@ -1034,6 +1034,81 @@
             }
             e.target.value = value;
         });
+
+        // Funções de pagamento Mercado Pago
+        async function comprarPlanoBasico() {
+            console.log('🛒 Iniciando compra do plano básico...');
+            
+            try {
+                // Mostrar loading
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Processando...';
+                button.disabled = true;
+
+                // Fazer requisição para criar pagamento
+                const response = await fetch('/criar-pagamento-basico', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.init_point) {
+                    console.log('✅ Redirecionando para pagamento...');
+                    // Redirecionar para o checkout do Mercado Pago
+                    window.location.href = data.init_point;
+                } else {
+                    throw new Error('Erro ao criar preferência de pagamento');
+                }
+            } catch (error) {
+                console.error('❌ Erro ao processar pagamento:', error);
+                alert('Erro ao processar pagamento. Tente novamente ou entre em contato conosco.');
+                
+                // Restaurar botão
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }
+        }
+
+        async function comprarPlanoCompleto() {
+            console.log('🛒 Iniciando compra do plano completo...');
+            
+            try {
+                // Mostrar loading
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Processando...';
+                button.disabled = true;
+
+                // Fazer requisição para criar pagamento
+                const response = await fetch('/criar-pagamento-completo', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.init_point) {
+                    console.log('✅ Redirecionando para pagamento...');
+                    // Redirecionar para o checkout do Mercado Pago
+                    window.location.href = data.init_point;
+                } else {
+                    throw new Error('Erro ao criar preferência de pagamento');
+                }
+            } catch (error) {
+                console.error('❌ Erro ao processar pagamento:', error);
+                alert('Erro ao processar pagamento. Tente novamente ou entre em contato conosco.');
+                
+                // Restaurar botão
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }
+        }
     </script>
 </body>
 </html> 
