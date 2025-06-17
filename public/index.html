@@ -316,6 +316,212 @@
             color: var(--dark-gray);
         }
 
+        /* New Sections Styles */
+        .immediate-benefits, .checklist-section, .polissonografia-section, 
+        .what-you-receive, .diagnosis-section, .scientific-benefits, 
+        .safety-section, .holozonic-approach {
+            padding: 80px 0;
+        }
+
+        .immediate-benefits {
+            background: #f8f9ff;
+        }
+
+        .benefits-grid, .receive-grid, .poli-grid, .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            align-items: stretch; /* Garante altura igual */
+        }
+
+        .benefit-card, .receive-card, .poli-card, .safety-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 200px; /* Altura mínima consistente */
+        }
+
+        .benefit-card h3, .receive-card h3, .poli-card h3, .safety-card h3 {
+            margin: 15px 0;
+            font-size: 1.2rem;
+            line-height: 1.4;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .benefit-card p, .receive-card p, .poli-card p, .safety-card p {
+            margin-top: auto;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .benefit-card:hover, .receive-card:hover, .poli-card:hover, .safety-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon, .receive-icon, .poli-icon, .safety-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .checklist-section {
+            background: 
+                linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="60" cy="40" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checklist-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .checklist-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .checklist-item {
+            margin-bottom: 20px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .checkbox-container:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .checkbox-container input {
+            margin-right: 15px;
+            transform: scale(1.5);
+        }
+
+        .warning-box {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .polissonografia-section {
+            background: #f0f4ff;
+        }
+
+        .gold-standard {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .scientific-benefits {
+            background: #f8f9ff;
+        }
+
+        .safety-section {
+            background: #fff8f0;
+        }
+
+        .holozonic-approach {
+            background: 
+                linear-gradient(135deg, rgba(45, 0, 77, 0.95) 0%, rgba(102, 126, 234, 0.9) 100%),
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.02) 50%, transparent 70%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .holozonic-approach::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .holozonic-approach .approach-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .holozonic-title {
+            color: white !important;
+        }
+
+        .approach-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .approach-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .approach-highlight {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            border-left: 5px solid var(--gold);
+        }
+
+        .cta-center {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .primary-large {
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
         /* Form Section */
         .form-section {
             padding: 80px 0;
@@ -486,6 +692,28 @@
             .pricing-card.featured {
                 transform: none;
             }
+
+            /* Cards responsivos */
+            .benefits-grid, .receive-grid, .poli-grid, .safety-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .benefit-card, .receive-card, .poli-card, .safety-card {
+                min-height: 180px;
+                padding: 25px 20px;
+            }
+
+            .benefit-icon, .receive-icon, .poli-icon, .safety-icon {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .urgency-banner {
+                padding: 12px 20px !important;
+                font-size: 1rem !important;
+                margin-bottom: 25px !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -552,7 +780,7 @@
 <body>
     <!-- Urgency Banner -->
     <div class="urgency-banner">
-        🌙 Campanha de Lançamento — "Seu Sono Pode Estar Gritando por Socorro enquanto você dorme."
+        Durma melhor, viva mais. Sua saúde começa pelo sono.
     </div>
 
     <!-- Hero Section -->
@@ -560,17 +788,45 @@
         <div class="container">
             <div class="hero-content" data-aos="fade-up">
                 <div class="hero-text">
-                    <h1>Seu Sono Pode Estar <span class="highlight">Gritando por Socorro</span></h1>
+                    <div class="urgency-banner" style="background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; padding: 15px 30px; border-radius: 30px; text-align: center; margin-bottom: 30px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);">
+                        🌙 Campanha de Lançamento para sua região
+                    </div>
+                    <h1>"Seu Sono Pode Estar <span class="highlight">Gritando por Socorro</span> enquanto você dorme."</h1>
                     <p class="subtitle">
                         Você Ronca, Acorda Cansado ou Tem Sono Durante o Dia? 
                         Você pode estar vivendo com <strong>Apneia do Sono</strong> — um inimigo silencioso que sobrecarrega o seu coração todas as noites.
                     </p>
-                    <a href="#formulario" class="cta-button">
-                        Quero Garantir Minha Avaliação Agora
+                    <a href="#precos" class="cta-button">
+                        👉 Agende seu exame domiciliar agora
                     </a>
                 </div>
                 <div class="hero-visual">
                     <img src="img/insonia.jpg" alt="Pessoa com problemas de sono - Insônia e Apneia do Sono">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section class="transformation-section">
+        <div class="container">
+            <div class="transformation-content" data-aos="fade-up">
+                <div class="transformation-text">
+                    <h2 class="section-title">Imagine Acordar Revigorado Todos os Dias</h2>
+                    <p class="section-subtitle">
+                        Com o diagnóstico correto e o tratamento adequado, você pode transformar suas noites e recuperar sua qualidade de vida.
+                        Pessoas que trataram a apneia do sono relatam:
+                    </p>
+                    <ul class="transformation-benefits">
+                        <li>✅ Mais energia e disposição durante o dia</li>
+                        <li>✅ Melhor concentração no trabalho</li>
+                        <li>✅ Relacionamentos mais harmoniosos</li>
+                        <li>✅ Redução significativa dos riscos cardíacos</li>
+                        <li>✅ Sono verdadeiramente reparador</li>
+                    </ul>
+                </div>
+                <div class="transformation-visual">
+                    <img src="img/backup.jpg" alt="Pessoa revigorada e com qualidade de vida após tratamento do sono">
                 </div>
             </div>
         </div>
@@ -605,31 +861,6 @@
         </div>
     </section>
 
-    <!-- Transformation Section -->
-    <section class="transformation-section">
-        <div class="container">
-            <div class="transformation-content" data-aos="fade-up">
-                <div class="transformation-text">
-                    <h2 class="section-title">Imagine Acordar Revigorado Todos os Dias</h2>
-                    <p class="section-subtitle">
-                        Com o diagnóstico correto e o tratamento adequado, você pode transformar suas noites e recuperar sua qualidade de vida.
-                        Pessoas que trataram a apneia do sono relatam:
-                    </p>
-                    <ul class="transformation-benefits">
-                        <li>✅ Mais energia e disposição durante o dia</li>
-                        <li>✅ Melhor concentração no trabalho</li>
-                        <li>✅ Relacionamentos mais harmoniosos</li>
-                        <li>✅ Redução significativa dos riscos cardíacos</li>
-                        <li>✅ Sono verdadeiramente reparador</li>
-                    </ul>
-                </div>
-                <div class="transformation-visual">
-                    <img src="img/backup.jpg" alt="Pessoa revigorada e com qualidade de vida após tratamento do sono">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Statistics Section -->
     <section class="stats-section">
         <div class="container">
@@ -650,13 +881,181 @@
         </div>
     </section>
 
+    <!-- Benefícios Imediatos Section -->
+    <section class="immediate-benefits">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Sem Burocracia, Sem Complicação</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Tudo que você precisa para descobrir a qualidade do seu sono
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">📋</div>
+                    <h3>Sem burocracia</h3>
+                    <p>Sem encaminhamento médico necessário</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">🏠</div>
+                    <h3>Em domicílio</h3>
+                    <p>Exame feito no conforto da sua casa com resultado rápido</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-icon">😴</div>
+                    <h3>Sem desconforto</h3>
+                    <p>Sem dormir em clínicas, sem cabos e desconfortos</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="benefit-icon">👨‍⚕️</div>
+                    <h3>Laudo completo</h3>
+                    <p>Resultado com laudo de especialista incluso</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="benefit-icon">🩺</div>
+                    <h3>Acompanhamento</h3>
+                    <p>Acompanhamento com profissional da saúde após o exame</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Checklist Section -->
+    <section class="checklist-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Por que Você Precisa Fazer Esse Exame?</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Marque os sintomas que você apresenta:
+            </p>
+            
+            <div class="checklist-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="checklist-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Você ronca?
+                    </label>
+                </div>
+                <div class="checklist-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Acorda cansado?
+                    </label>
+                </div>
+                <div class="checklist-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Dorme mal?
+                    </label>
+                </div>
+                <div class="checklist-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Tem histórico familiar de problemas cardíacos?
+                    </label>
+                </div>
+                <div class="checklist-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Sofre com irritação, baixa produtividade ou lapsos de memória?
+                    </label>
+                </div>
+            </div>
+            
+            <div class="warning-box" data-aos="fade-up" data-aos-delay="300">
+                <p><strong>⚠️ ATENÇÃO:</strong> Ignorar a apneia do sono pode colocar sua vida em risco. Cuide-se com conforto e precisão.</p>
+                <a href="#precos" class="cta-button">Quero Fazer o Exame Agora</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- What is Polissonografia -->
+    <section class="polissonografia-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O que é Polissonografia?</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                <strong>Poli</strong> (vários) + <strong>Sono</strong> (sono) + <strong>Grafia</strong> (registro) = registros de múltiplos canais
+            </p>
+            
+            <div class="poli-grid">
+                <div class="poli-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="poli-icon">🧠</div>
+                    <h3>Atividade cerebral</h3>
+                </div>
+                <div class="poli-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="poli-icon">🫁</div>
+                    <h3>Respiração</h3>
+                </div>
+                <div class="poli-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="poli-icon">💓</div>
+                    <h3>Frequência cardíaca</h3>
+                </div>
+                <div class="poli-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="poli-icon">😴</div>
+                    <h3>Qualidade do sono</h3>
+                </div>
+                <div class="poli-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="poli-icon">🔊</div>
+                    <h3>Ronco</h3>
+                </div>
+                <div class="poli-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="poli-icon">🩸</div>
+                    <h3>Saturação de oxigênio</h3>
+                </div>
+            </div>
+            
+            <p class="gold-standard" data-aos="fade-up" data-aos-delay="800">
+                <strong>É o padrão-ouro para diagnosticar apneia do sono usando tecnologia de ponta.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- What You Receive -->
+    <section class="what-you-receive">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O Que Você Recebe</h2>
+            
+            <div class="receive-grid">
+                <div class="receive-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="receive-icon">📱</div>
+                    <h3>Dispositivo leve, compacto e indolor</h3>
+                </div>
+                <div class="receive-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="receive-icon">📲</div>
+                    <h3>Aplicativo intuitivo para conexão</h3>
+                </div>
+                <div class="receive-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="receive-icon">🎥</div>
+                    <h3>Instruções simples (vídeo + PDF)</h3>
+                </div>
+                <div class="receive-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="receive-icon">📋</div>
+                    <h3>Laudo completo enviado por e-mail ou WhatsApp</h3>
+                </div>
+                <div class="receive-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="receive-icon">👨‍⚕️</div>
+                    <h3>Agendamento com especialista em saúde</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- How it Works -->
     <section class="how-it-works">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Como Funciona o Exame Domiciliar</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
                 Agora você pode descobrir se sofre desse mal sem sair de casa, com um exame moderno, 
-                validado por inteligência artificial e com laudo médico incluso.
+                validado por especialista e com laudo médico incluso.
             </p>
             
             <div class="steps-grid">
@@ -727,6 +1126,82 @@
         </div>
     </section>
 
+    <!-- Diagnosis Section -->
+    <section class="diagnosis-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Diagnóstico e o que fazer</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Caso a apneia do sono seja identificada, você receberá orientações claras sobre todas as opções terapêuticas.
+            </p>
+            <p class="section-text" data-aos="fade-up" data-aos-delay="200">
+                Integração com avaliação funcional, seguindo uma abordagem holística e científica para seu bem-estar completo.
+            </p>
+            <div class="cta-center" data-aos="fade-up" data-aos-delay="300">
+                <a href="#precos" class="cta-button">Quero Fazer Minha Avaliação</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scientific Benefits -->
+    <section class="scientific-benefits">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Benefícios Cientificamente Validados</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">🔬</div>
+                    <h3>Exame validado cientificamente</h3>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">🛠️</div>
+                    <h3>Equipamento moderno e confortável</h3>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Sem filas ou pedidos médicos</h3>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Valor acessível (a partir de R$ 290,00)</h3>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="benefit-icon">👨‍⚕️</div>
+                    <h3>Resultado avaliado por especialista em sono</h3>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Interpretação + plano terapêutico</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety and Efficiency -->
+    <section class="safety-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Segurança e Eficiência</h2>
+            
+            <div class="safety-grid">
+                <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="safety-icon">✅</div>
+                    <h3>Dispositivo aprovado pela Anvisa</h3>
+                </div>
+                <div class="safety-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="safety-icon">🔍</div>
+                    <h3>Dispositivo de alta resolução e fácil de usar</h3>
+                </div>
+                <div class="safety-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="safety-icon">🤝</div>
+                    <h3>Suporte humano e clínico durante todo o processo</h3>
+                </div>
+                <div class="safety-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="safety-icon">🏆</div>
+                    <h3>Eficácia e exame comprovado clinicamente</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Bonus Section -->
     <section class="bonus-section">
         <div class="container">
@@ -778,6 +1253,31 @@
                         <li>✅ E-book exclusivo</li>
                     </ul>
                     <button onclick="comprarPlanoCompleto(event)" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Holozonic Approach -->
+    <section class="holozonic-approach">
+        <div class="container">
+            <h2 class="section-title holozonic-title" data-aos="fade-up">Abordagem Holozonic</h2>
+            
+            <div class="approach-content" data-aos="fade-up" data-aos-delay="200">
+                <p class="approach-text">
+                    Na Clínica Holozonic aplicamos o Exame do Sono com uma abordagem inovadora, holística e científica. 
+                    Consideramos o sono um dos pilares essenciais da saúde integral.
+                </p>
+                
+                <p class="approach-highlight">
+                    Se você sente cansaço constante, irritabilidade, ansiedade ou dificuldade de concentração, 
+                    talvez a raiz do problema esteja em <strong>como você dorme</strong>.
+                </p>
+                
+                <div class="cta-center" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#precos" class="cta-button primary-large">
+                        👉 Descubra Como Está Seu Sono Agora
+                    </a>
                 </div>
             </div>
         </div>
@@ -1126,6 +1626,6 @@
             }
         }
     </script>
-    <!-- Version: v2024-06-17-16h15m - Cache buster -->
+    <!-- Version: v2024-06-17-17h15m - Hero section banner and title updates -->
 </body>
 </html> 
