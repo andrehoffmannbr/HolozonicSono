@@ -127,6 +127,54 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
+        /* Image optimization styles */
+        .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .image-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
         /* Urgency Banner */
         .urgency-banner {
             background: var(--gold);
@@ -289,6 +337,12 @@
         .pricing-card.featured {
             border: 3px solid var(--gold);
             transform: scale(1.05);
+            background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+        }
+
+        .pricing-card.premium {
+            border: 3px solid var(--accent-purple);
+            background: linear-gradient(135deg, #f8f4ff 0%, #ffffff 100%);
         }
 
         .featured-badge {
@@ -302,6 +356,78 @@
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .plan-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .plan-features {
+            padding-left: 0 !important;
+        }
+
+        .plan-features li {
+            padding: 8px 0;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--dark-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .plan-features li::before {
+            content: '';
+            min-width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat center;
+            background-size: contain;
+            margin-top: 2px;
+        }
+
+        .plan-button {
+            display: block;
+            width: 100%;
+            padding: 15px 25px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+        }
+
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 0, 77, 0.3);
+        }
+
+        .featured-button {
+            background: linear-gradient(45deg, var(--gold), #ffed4e);
+            color: var(--primary-purple);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .featured-button:hover {
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .premium-button {
+            background: linear-gradient(45deg, var(--accent-purple), #8b5abf);
+            color: white;
+            box-shadow: 0 5px 20px rgba(106, 13, 173, 0.3);
+        }
+
+        .premium-button:hover {
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.4);
         }
 
         .price {
@@ -325,6 +451,11 @@
 
         .immediate-benefits {
             background: #f8f9ff;
+        }
+
+        .image-gallery {
+            padding: 80px 0;
+            background: #fff;
         }
 
         .benefits-grid, .receive-grid, .poli-grid, .safety-grid {
@@ -693,6 +824,19 @@
                 transform: none;
             }
 
+            .pricing-card.premium {
+                transform: none;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .plan-features li {
+                font-size: 0.9rem;
+            }
+
             /* Cards responsivos */
             .benefits-grid, .receive-grid, .poli-grid, .safety-grid {
                 grid-template-columns: 1fr;
@@ -801,7 +945,7 @@
                     </a>
                 </div>
                 <div class="hero-visual">
-                    <img src="img/insonia.jpg" alt="Pessoa com problemas de sono - Insônia e Apneia do Sono">
+                    <img src="img/monitorando.png" alt="Dispositivo de polissonografia sendo usado para monitoramento do sono domiciliar - tecnologia avançada e não invasiva para diagnóstico de apneia do sono">
                 </div>
             </div>
         </div>
@@ -876,6 +1020,30 @@
                 <div class="stat-item">
                     <h3>48h</h3>
                     <p>Para receber seu laudo completo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleep Quality Gallery -->
+    <section class="image-gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Veja a Diferença Entre Dormir Mal e Dormir Bem</h2>
+            <div class="image-grid">
+                <div class="image-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/insonia.jpg" alt="Pessoa com insônia e problemas de sono - cansaço, irritabilidade e falta de energia">
+                    <h3>Antes do Tratamento</h3>
+                    <p class="image-caption">Insônia, cansaço e falta de energia comprometem sua qualidade de vida</p>
+                </div>
+                <div class="image-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="img/descansando.jpg" alt="Pessoa descansando tranquilamente após tratamento para apneia do sono - sono reparador">
+                    <h3>Sono Reparador</h3>
+                    <p class="image-caption">Descanso profundo e reparador para uma vida mais saudável</p>
+                </div>
+                <div class="image-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="img/acordando.jpg" alt="Pessoa acordando revigorada e energizada após noite bem dormida - despertar natural e saudável">
+                    <h3>Após o Tratamento</h3>
+                    <p class="image-caption">Acordar revigorado e com energia para enfrentar o dia</p>
                 </div>
             </div>
         </div>
@@ -1217,42 +1385,73 @@
     </section>
 
     <!-- Pricing Section -->
-    <section class="pricing-section">
+    <section class="pricing-section" id="precos">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Investimento</h2>
+            <h2 class="section-title" data-aos="fade-up">Escolha Seu Plano</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Selecione o plano que melhor atende às suas necessidades
+            </p>
             
             <div class="pricing-grid">
+                <!-- Plano Básico -->
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="plan-icon">🩺</div>
                     <h3>Exame + Laudo</h3>
                     <div class="price">R$ 290<span class="price-small">,00</span></div>
                     <p class="price-small">à vista</p>
-                    <p style="margin: 10px 0;">ou</p>
+                    <p style="margin: 10px 0; color: var(--primary-purple); font-weight: 600;">ou</p>
                     <p><strong>3x de R$ 106,33</strong></p>
-                    <ul style="text-align: left; margin: 20px 0; list-style: none;">
-                        <li>✅ Dispositivo por 1 noite</li>
-                        <li>✅ Laudo médico completo</li>
+                    
+                    <ul class="plan-features" style="text-align: left; margin: 30px 0; list-style: none; padding: 0;">
+                        <li>✅ Exame de polissonografia por 1 noite</li>
                         <li>✅ Análise por Profissional Especialista em sono</li>
-                        <li>✅ Suporte técnico</li>
+                        <li>✅ Laudo médico completo</li>
+                        <li>✅ Orientações relativas ao uso do dispositivo</li>
                     </ul>
-                    <button onclick="comprarPlanoBasico(event)" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
+                    <button onclick="comprarPlanoBasico(event)" class="plan-button">Escolher Este Plano</button>
                 </div>
                 
+                <!-- Plano Mais Popular -->
                 <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="300">
-                    <div class="featured-badge">MAIS POPULAR</div>
+                    <div class="featured-badge">🌟 MAIS POPULAR</div>
+                    <div class="plan-icon">🌟</div>
                     <h3>Completo + Bônus</h3>
                     <div class="price">R$ 490<span class="price-small">,00</span></div>
                     <p class="price-small">à vista</p>
-                    <p style="margin: 10px 0;">ou</p>
+                    <p style="margin: 10px 0; color: var(--primary-purple); font-weight: 600;">ou</p>
                     <p><strong>3x de R$ 179,66</strong></p>
-                    <ul style="text-align: left; margin: 20px 0; list-style: none;">
-                        <li>✅ Tudo do plano anterior</li>
-                        <li>✅ Óleo ozonizado terapêutico</li>
-                        <li>✅ Frequências sonoras personalizadas</li>
-                        <li>✅ Acompanhamento 30 dias</li>
-                        <li>✅ Consulta explicativa</li>
-                        <li>✅ E-book exclusivo</li>
+                    
+                    <ul class="plan-features" style="text-align: left; margin: 30px 0; list-style: none; padding: 0;">
+                        <li>✅ Consulta com anamnese ampla sobre o sono</li>
+                        <li>✅ Exame de polissonografia do sono</li>
+                        <li>✅ Análise por Profissional Especialista em sono</li>
+                        <li>✅ Laudo médico completo</li>
+                        <li>✅ Orientações relativas ao uso do dispositivo</li>
                     </ul>
-                    <button onclick="comprarPlanoCompleto(event)" class="cta-button" style="display: block; text-align: center; margin-top: 20px; border: none; cursor: pointer; width: 100%; background: linear-gradient(45deg, var(--gold), #ffed4e); color: var(--primary-purple);">Escolher Este Plano</button>
+                    <button onclick="comprarPlanoCompleto(event)" class="plan-button featured-button">Escolher Este Plano</button>
+                </div>
+                
+                <!-- Plano Completo -->
+                <div class="pricing-card premium" data-aos="fade-up" data-aos-delay="400">
+                    <div class="plan-icon">💤</div>
+                    <h3>Completo + Comparativo de Duas Noites</h3>
+                    <div class="price">R$ 590<span class="price-small">,00</span></div>
+                    <p class="price-small">à vista</p>
+                    <p style="margin: 10px 0; color: var(--primary-purple); font-weight: 600;">ou</p>
+                    <p><strong>3x de R$ 216,33</strong></p>
+                    
+                    <ul class="plan-features" style="text-align: left; margin: 30px 0; list-style: none; padding: 0;">
+                        <li>✅ Consulta com anamnese ampla sobre o sono</li>
+                        <li>✅ Duas noites em poder do dispositivo</li>
+                        <li>✅ Primeira noite de exame normal de sua rotina</li>
+                        <li>✅ Segunda noite totalmente orientado para o sono</li>
+                        <li>✅ Exame de polissonografia do sono</li>
+                        <li>✅ Análise por Profissional Especialista em sono</li>
+                        <li>✅ Laudo médico completo</li>
+                        <li>✅ Orientações relativas ao uso do dispositivo</li>
+                        <li>✅ Retorno com avaliação dos dois resultados</li>
+                    </ul>
+                    <button onclick="comprarPlanoPremium(event)" class="plan-button premium-button">Escolher Este Plano</button>
                 </div>
             </div>
         </div>
@@ -1261,11 +1460,11 @@
     <!-- Holozonic Approach -->
     <section class="holozonic-approach">
         <div class="container">
-            <h2 class="section-title holozonic-title" data-aos="fade-up">Abordagem Holozonic</h2>
+            <h2 class="section-title holozonic-title" data-aos="fade-up">Método Holozonic</h2>
             
             <div class="approach-content" data-aos="fade-up" data-aos-delay="200">
                 <p class="approach-text">
-                    Na Clínica Holozonic aplicamos o Exame do Sono com uma abordagem inovadora, holística e científica. 
+                    Na Clínica Holozonic aplicamos o Exame do Sono com um método inovador, holístico e científico. 
                     Consideramos o sono um dos pilares essenciais da saúde integral.
                 </p>
                 
@@ -1394,8 +1593,9 @@
                         <label for="plano">Qual plano deseja contratar? *</label>
                         <select id="plano" name="plano" required>
                             <option value="">Selecione...</option>
-                            <option value="basico">Exame + Laudo (R$ 290,00)</option>
-                            <option value="completo">Completo + Bônus (R$ 490,00)</option>
+                            <option value="basico">🩺 Exame + Laudo (R$ 290,00)</option>
+                            <option value="completo">🌟 Completo + Bônus (R$ 490,00) - MAIS POPULAR</option>
+                            <option value="premium">💤 Completo + Comparativo de Duas Noites (R$ 590,00)</option>
                         </select>
                     </div>
                     
@@ -1418,6 +1618,9 @@
     <footer class="footer">
         <div class="container">
             <h3>Holozonic - Clínica Integrada em Saúde Humana</h3>
+            <div class="image-container" style="margin: 20px 0;">
+                <img src="img/biologix.png" alt="Tecnologia Biologix - Parceria para exames de polissonografia domiciliar com alta precisão e qualidade" style="max-width: 200px; height: auto; border-radius: 0; opacity: 0.8;">
+            </div>
             <div class="footer-links">
                 <a href="#politica">Política de Privacidade</a>
                 <a href="#termos">Termos de Uso</a>
@@ -1595,6 +1798,51 @@
 
                 // Fazer requisição para criar pagamento
                 const response = await fetch('/api/criar-pagamento-completo?v=' + Date.now(), {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('❌ Resposta do servidor:', errorText);
+                    throw new Error(`Erro ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+
+                if (data.init_point) {
+                    console.log('✅ Redirecionando para pagamento...');
+                    // Redirecionar para o checkout do Mercado Pago
+                    window.location.href = data.init_point;
+                } else {
+                    throw new Error('Erro ao criar preferência de pagamento');
+                }
+            } catch (error) {
+                console.error('❌ Erro ao processar pagamento:', error);
+                alert('Erro ao processar pagamento. Tente novamente ou entre em contato conosco.');
+                
+                // Restaurar botão
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }
+        }
+
+        async function comprarPlanoPremium(event) {
+            console.log('🛒 Iniciando compra do plano premium...');
+            console.log('🔍 Event:', event);
+            console.log('🔍 Target:', event.target);
+            
+            try {
+                // Mostrar loading
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Processando...';
+                button.disabled = true;
+
+                // Fazer requisição para criar pagamento
+                const response = await fetch('/api/criar-pagamento-premium?v=' + Date.now(), {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

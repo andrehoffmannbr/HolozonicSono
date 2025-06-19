@@ -104,6 +104,47 @@ app.post('/criar-pagamento-completo', async (req, res) => {
     }
 });
 
+// Endpoint para criar pagamento do plano premium (R$ 590)
+app.post('/criar-pagamento-premium', async (req, res) => {
+    try {
+        console.log('🔄 Criando pagamento do plano premium...');
+        
+        const preference = {
+            items: [
+                {
+                    title: 'Holozonic - Completo + Comparativo de Duas Noites',
+                    description: 'Exame completo + Comparativo + Consulta + Laudo + Duas noites de exame',
+                    unit_price: 590.00,
+                    quantity: 1,
+                    currency_id: 'BRL'
+                }
+            ],
+            payment_methods: {
+                excluded_payment_methods: [],
+                excluded_payment_types: [],
+                installments: 3
+            },
+            back_urls: {
+                success: `${process.env.BASE_URL}/sucesso.html`,
+                failure: `${process.env.BASE_URL}/erro.html`,
+                pending: `${process.env.BASE_URL}/pendente.html`
+            },
+            external_reference: 'plano-premium-holozonic'
+        };
+
+        const response = await mercadopago.preferences.create(preference);
+        console.log('✅ Preferência criada:', response.body.id);
+        
+        res.json({
+            id: response.body.id,
+            init_point: response.body.init_point
+        });
+    } catch (error) {
+        console.error('❌ Erro ao criar preferência:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+});
+
 // Webhook para receber notificações do Mercado Pago
 app.post('/webhook', (req, res) => {
     console.log('📧 Webhook recebido:', req.body);
