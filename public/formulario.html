@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pré-Anamnese - Clínica Holozonic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #2d004d;
+            --primary-blue: #001f3f;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333;
+            --gold: #ffd700;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+            min-height: 100vh;
+            color: var(--white);
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            color: var(--dark-gray);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan-info {
+            background: linear-gradient(135deg, var(--light-gray), #fff);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--gold);
+        }
+
+        .plan-info h3 {
+            color: var(--primary-purple);
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-purple);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .submit-button {
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 0, 77, 0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Voltar à página inicial</a>
+        
+        <div class="header">
+            <h1>Formulário de Pré-Anamnese</h1>
+            <p>Preencha os dados abaixo para prosseguir com seu plano escolhido</p>
+        </div>
+
+        <div class="form-container">
+            <div class="plan-info" id="planInfo">
+                <h3>Plano Selecionado</h3>
+                <p id="planDetails">Carregando informações do plano...</p>
+            </div>
+
+            <form id="sleepForm">
+                <h3 style="color: var(--primary-purple); margin-bottom: 20px;">👤 DADOS PESSOAIS</h3>
+                
+                <div class="form-group">
+                    <label for="nome">Nome completo *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nascimento">Data de nascimento *</label>
+                    <input type="date" id="nascimento" name="nascimento" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="idade">Idade *</label>
+                    <input type="number" id="idade" name="idade" min="18" max="100" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="genero">Gênero *</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">Selecione...</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="endereco">Endereço completo *</label>
+                    <textarea id="endereco" name="endereco" rows="3" placeholder="Rua, Número, Bairro, Cidade, Estado" required></textarea>
+                </div>
+
+                <h3 style="color: var(--primary-purple); margin: 40px 0 20px;">🛌 SINTOMAS RELACIONADOS AO SONO</h3>
+                
+                <div class="form-group">
+                    <label>Você apresenta algum dos sintomas abaixo? (marque os que se aplicam):</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ronco" name="sintomas[]" value="ronco">
+                            <label for="ronco">Ronco</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="paradas" name="sintomas[]" value="paradas">
+                            <label for="paradas">Paradas respiratórias</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="cansaco" name="sintomas[]" value="cansaco">
+                            <label for="cansaco">Cansaço durante o dia</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dor-cabeca" name="sintomas[]" value="dor-cabeca">
+                            <label for="dor-cabeca">Dor de cabeça ao acordar</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="boca-seca" name="sintomas[]" value="boca-seca">
+                            <label for="boca-seca">Boca seca ao despertar</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="insonia" name="sintomas[]" value="insonia">
+                            <label for="insonia">Insônia</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="horas-sono">Quantas horas dorme por noite, em média? *</label>
+                    <input type="number" id="horas-sono" name="horas-sono" min="3" max="12" step="0.5" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sono-reparador">Você sente que seu sono é reparador? *</label>
+                    <select id="sono-reparador" name="sono-reparador" required>
+                        <option value="">Selecione...</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                        <option value="as-vezes">Às vezes</option>
+                    </select>
+                </div>
+
+                <h3 style="color: var(--primary-purple); margin: 40px 0 20px;">💬 OBJETIVO DA AVALIAÇÃO</h3>
+                
+                <div class="form-group">
+                    <label for="motivacao">Qual sua principal motivação para buscar esta avaliação? *</label>
+                    <textarea id="motivacao" name="motivacao" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="autorizacao" name="autorizacao" required>
+                        <label for="autorizacao">Autorizo o envio de informações, orientações terapêuticas e conteúdos educativos da Clínica Holozonic via WhatsApp e e-mail. *</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-button">
+                    Finalizar e Prosseguir para Pagamento
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get plan information from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const planType = urlParams.get('plan');
+        
+        const planDetails = {
+            basico: {
+                name: '🟩 Plano 1 – Descubra Seu Sono',
+                price: 'R$ 290,00 à vista ou 3x de R$ 106,33',
+                description: '🔎 Descubra o que o sono diz sobre você'
+            },
+            completo: {
+                name: '🟨 Plano 2 – Sono em Foco',
+                price: 'R$ 490,00 à vista ou 3x de R$ 179,66',
+                description: '🧠 Avaliação aprofundada com cuidado personalizado'
+            },
+            premium: {
+                name: '🟥 Plano 3 – Transforme Seu Sono',
+                price: 'R$ 590,00 à vista ou 3x de R$ 216,33',
+                description: '🌙 Avaliação comparativa em duas noites'
+            }
+        };
+
+        // Display plan information
+        if (planType && planDetails[planType]) {
+            const plan = planDetails[planType];
+            document.getElementById('planDetails').innerHTML = `
+                <strong>${plan.name}</strong><br>
+                ${plan.description}<br>
+                <span style="color: var(--primary-purple); font-weight: 600;">${plan.price}</span>
+            `;
+        } else {
+            document.getElementById('planDetails').innerHTML = `
+                <strong>Nenhum plano selecionado</strong><br>
+                <a href="/">Volte e selecione um plano</a>
+            `;
+        }
+
+        // Form submission
+        document.getElementById('sleepForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!planType) {
+                alert('Erro: nenhum plano selecionado. Volte e selecione um plano.');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Add plan information
+            data.plano = planType;
+            
+            // Simple validation
+            const requiredFields = ['nome', 'email', 'whatsapp'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!data[field]) {
+                    isValid = false;
+                    document.getElementById(field).style.borderColor = 'red';
+                } else {
+                    document.getElementById(field).style.borderColor = '#e0e0e0';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // Store form data in localStorage for use after payment
+            localStorage.setItem('holozonixFormData', JSON.stringify(data));
+            
+            // Show loading state
+            const button = e.target.querySelector('.submit-button');
+            const originalText = button.innerHTML;
+            button.innerHTML = 'Processando...';
+            button.disabled = true;
+            
+            // Redirect to payment based on plan
+            const paymentUrls = {
+                basico: '/api/criar-pagamento-basico',
+                completo: '/api/criar-pagamento-completo',
+                premium: '/api/criar-pagamento-premium'
+            };
+            
+            if (paymentUrls[planType]) {
+                // Create payment
+                fetch(paymentUrls[planType], {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.init_point) {
+                        window.location.href = data.init_point;
+                    } else {
+                        throw new Error('Erro ao criar link de pagamento');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao processar pagamento. Tente novamente.');
+                    
+                    // Restore button
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                });
+            }
+        });
+
+        // Update age field when birth date changes
+        document.getElementById('nascimento').addEventListener('change', function() {
+            const birthDate = new Date(this.value);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            document.getElementById('idade').value = age;
+        });
+
+        // WhatsApp phone number formatting
+        document.getElementById('whatsapp').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            } else if (value.length >= 7) {
+                value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+            } else if (value.length >= 3) {
+                value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html> 

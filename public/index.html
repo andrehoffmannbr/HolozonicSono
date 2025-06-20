@@ -46,6 +46,118 @@
             padding: 0 20px;
         }
 
+        /* Elemento flutuante superior direito */
+        .floating-badge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            backdrop-filter: blur(10px);
+            color: var(--primary-purple);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: gentleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* CTA fixa inferior */
+        .bottom-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .bottom-cta.show {
+            transform: translateY(0);
+        }
+
+        .bottom-cta-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .bottom-cta-button {
+            background: var(--gold);
+            color: var(--primary-purple);
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        /* WhatsApp notification bubble */
+        .whatsapp-notification {
+            position: fixed;
+            bottom: 170px;
+            right: 30px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            max-width: 280px;
+            z-index: 998;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.4s ease;
+            border-left: 4px solid #25d366;
+        }
+
+        .whatsapp-notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .whatsapp-notification-text {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .whatsapp-close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
@@ -175,27 +287,28 @@
             margin-top: 10px;
         }
 
-        /* Urgency Banner */
-        .urgency-banner {
-            background: var(--gold);
-            color: var(--primary-purple);
-            text-align: center;
-            padding: 15px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            position: relative;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
         /* Problem Section */
         .problem-section {
             padding: 80px 0;
             background: var(--light-gray);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-purple);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--dark-gray);
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .problem-grid {
@@ -738,7 +851,7 @@
         /* WhatsApp Float Button */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
+            bottom: 100px;
             right: 30px;
             background: #25d366;
             color: white;
@@ -848,6 +961,52 @@
                 padding: 25px 20px;
             }
 
+            /* Floating badge mobile */
+            .floating-badge {
+                font-size: 0.8rem;
+                padding: 10px 15px;
+                top: 15px;
+                right: 15px;
+            }
+
+            /* Bottom CTA mobile */
+            .bottom-cta {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .bottom-cta-text {
+                font-size: 0.8rem;
+            }
+
+            .bottom-cta-button {
+                font-size: 0.8rem;
+                padding: 6px 15px;
+            }
+
+            /* WhatsApp notification mobile */
+            .whatsapp-notification {
+                right: 15px;
+                bottom: 150px;
+                max-width: 250px;
+                padding: 12px 15px;
+            }
+
+            .whatsapp-notification-text {
+                font-size: 0.8rem;
+            }
+
+            /* Interstitial CTA mobile */
+            .interstitial-title {
+                font-size: 1.5rem;
+            }
+
+            .interstitial-text {
+                font-size: 1rem;
+            }
+
             .benefit-icon, .receive-icon, .poli-icon, .safety-icon {
                 font-size: 2.5rem;
                 margin-bottom: 15px;
@@ -919,12 +1078,67 @@
             content: "✅";
             font-size: 1.2rem;
         }
+
+        /* Interstitial CTA Sections */
+        .interstitial-cta {
+            background: linear-gradient(135deg, rgba(45, 0, 77, 0.95), rgba(0, 31, 63, 0.95));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interstitial-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,215,0,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .interstitial-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .interstitial-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .interstitial-text {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
-    <!-- Urgency Banner -->
-    <div class="urgency-banner">
-        Durma melhor, viva mais. Sua saúde começa pelo sono.
+    <!-- Elemento flutuante superior esquerdo -->
+    <div class="floating-badge">
+        💤 Durma melhor, viva mais. Sua saúde começa pelo sono.
+    </div>
+
+    <!-- CTA fixa inferior -->
+    <div class="bottom-cta" id="bottomCta">
+        <div class="bottom-cta-text">❓ Descubra se você tem apneia do sono</div>
+        <a href="#precos" class="bottom-cta-button">Simule Agora</a>
+    </div>
+
+    <!-- WhatsApp notification bubble -->
+    <div class="whatsapp-notification" id="whatsappNotification">
+        <button class="whatsapp-close" onclick="closeWhatsAppNotification()">×</button>
+        <div class="whatsapp-notification-text">
+            💬 Está com dúvidas? Fale com a Clínica Holozonic agora mesmo!
+        </div>
     </div>
 
     <!-- Hero Section -->
@@ -1066,7 +1280,7 @@
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="benefit-icon">🏠</div>
                     <h3>Em domicílio</h3>
-                    <p>Exame feito no conforto da sua casa com resultado rápido</p>
+                    <p>Exame de Sono com a Clínica Holozonic feito no conforto da sua casa com resultado rápido</p>
                 </div>
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="benefit-icon">😴</div>
@@ -1137,7 +1351,18 @@
             
             <div class="warning-box" data-aos="fade-up" data-aos-delay="300">
                 <p><strong>⚠️ ATENÇÃO:</strong> Ignorar a apneia do sono pode colocar sua vida em risco. Cuide-se com conforto e precisão.</p>
-                <a href="#precos" class="cta-button">Quero Fazer o Exame Agora</a>
+                <a href="#precos" class="cta-button">Quero Fazer o Exame de Sono com a Clínica Holozonic Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interstitial CTA 1 -->
+    <section class="interstitial-cta">
+        <div class="container">
+            <div class="interstitial-content" data-aos="fade-up">
+                <h3 class="interstitial-title">Pronto para entender sua saúde do sono?</h3>
+                <p class="interstitial-text">Não deixe sua saúde em segundo plano. Descubra hoje como está seu sono.</p>
+                <a href="#precos" class="cta-button">Conhecer Planos</a>
             </div>
         </div>
     </section>
@@ -1393,66 +1618,81 @@
             </p>
             
             <div class="pricing-grid">
-                <!-- Plano Básico -->
+                <!-- 🟩 Plano 1 – Descubra Seu Sono -->
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="plan-icon">🩺</div>
-                    <h3>Exame + Laudo</h3>
+                    <div class="plan-icon">🟩</div>
+                    <h3>Plano 1 – Descubra Seu Sono</h3>
+                    <p style="color: var(--primary-purple); font-weight: 600; margin-bottom: 15px;">🔎 Descubra o que o sono diz sobre você</p>
                     <div class="price">R$ 290<span class="price-small">,00</span></div>
                     <p class="price-small">à vista</p>
                     <p style="margin: 10px 0; color: var(--primary-purple); font-weight: 600;">ou</p>
                     <p><strong>3x de R$ 106,33</strong></p>
                     
                     <ul class="plan-features" style="text-align: left; margin: 30px 0; list-style: none; padding: 0;">
-                        <li>✅ Exame de polissonografia por 1 noite</li>
-                        <li>✅ Análise por Profissional Especialista em sono</li>
-                        <li>✅ Laudo médico completo</li>
-                        <li>✅ Orientações relativas ao uso do dispositivo</li>
+                        <li>✅ 1 noite de exame</li>
+                        <li>✅ Análise por especialista</li>
+                        <li>✅ Laudo completo</li>
+                        <li>✅ Orientações de uso</li>
                     </ul>
-                    <button onclick="comprarPlanoBasico(event)" class="plan-button">Escolher Este Plano</button>
+                    <p style="font-style: italic; color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 20px;">
+                        Ideal para: suspeitas iniciais, investigação ou check-up preventivo.
+                    </p>
+                    <a href="/formulario.html?plan=basico" class="plan-button" style="text-decoration: none; color: white; display: block; text-align: center;">Escolher Este Plano</a>
                 </div>
                 
-                <!-- Plano Mais Popular -->
+                <!-- 🟨 Plano 2 – Sono em Foco -->
                 <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="300">
                     <div class="featured-badge">🌟 MAIS POPULAR</div>
-                    <div class="plan-icon">🌟</div>
-                    <h3>Completo + Bônus</h3>
+                    <div class="plan-icon">🟨</div>
+                    <h3>Plano 2 – Sono em Foco</h3>
+                    <p style="color: var(--primary-purple); font-weight: 600; margin-bottom: 15px;">🧠 Avaliação aprofundada com cuidado personalizado</p>
                     <div class="price">R$ 490<span class="price-small">,00</span></div>
                     <p class="price-small">à vista</p>
                     <p style="margin: 10px 0; color: var(--primary-purple); font-weight: 600;">ou</p>
                     <p><strong>3x de R$ 179,66</strong></p>
                     
                     <ul class="plan-features" style="text-align: left; margin: 30px 0; list-style: none; padding: 0;">
-                        <li>✅ Consulta com anamnese ampla sobre o sono</li>
-                        <li>✅ Exame de polissonografia do sono</li>
-                        <li>✅ Análise por Profissional Especialista em sono</li>
-                        <li>✅ Laudo médico completo</li>
-                        <li>✅ Orientações relativas ao uso do dispositivo</li>
+                        <li>✅ Consulta + anamnese</li>
+                        <li>✅ 1 noite de exame</li>
+                        <li>✅ Detecção de fibrilação atrial</li>
+                        <li>✅ Análise especializada</li>
+                        <li>✅ Laudo e orientações personalizadas</li>
                     </ul>
-                    <button onclick="comprarPlanoCompleto(event)" class="plan-button featured-button">Escolher Este Plano</button>
+                    <p style="font-style: italic; color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 20px;">
+                        Ideal para: queixas persistentes, insônia, roncos.
+                    </p>
+                    <a href="/formulario.html?plan=completo" class="plan-button featured-button" style="text-decoration: none; color: var(--primary-purple); display: block; text-align: center;">Escolher Este Plano</a>
                 </div>
                 
-                <!-- Plano Completo -->
+                <!-- 🟥 Plano 3 – Transforme Seu Sono -->
                 <div class="pricing-card premium" data-aos="fade-up" data-aos-delay="400">
-                    <div class="plan-icon">💤</div>
-                    <h3>Completo + Comparativo de Duas Noites</h3>
+                    <div class="plan-icon">🟥</div>
+                    <h3>Plano 3 – Transforme Seu Sono</h3>
+                    <p style="color: var(--primary-purple); font-weight: 600; margin-bottom: 15px;">🌙 Avaliação comparativa em duas noites</p>
                     <div class="price">R$ 590<span class="price-small">,00</span></div>
                     <p class="price-small">à vista</p>
                     <p style="margin: 10px 0; color: var(--primary-purple); font-weight: 600;">ou</p>
                     <p><strong>3x de R$ 216,33</strong></p>
                     
                     <ul class="plan-features" style="text-align: left; margin: 30px 0; list-style: none; padding: 0;">
-                        <li>✅ Consulta com anamnese ampla sobre o sono</li>
-                        <li>✅ Duas noites em poder do dispositivo</li>
-                        <li>✅ Primeira noite de exame normal de sua rotina</li>
-                        <li>✅ Segunda noite totalmente orientado para o sono</li>
-                        <li>✅ Exame de polissonografia do sono</li>
-                        <li>✅ Análise por Profissional Especialista em sono</li>
-                        <li>✅ Laudo médico completo</li>
-                        <li>✅ Orientações relativas ao uso do dispositivo</li>
-                        <li>✅ Retorno com avaliação dos dois resultados</li>
+                        <li>✅ Consulta clínica + estilo de vida</li>
+                        <li>✅ 2 noites com e sem orientações</li>
+                        <li>✅ Análise comparativa</li>
+                        <li>✅ Detecção de fibrilação atrial</li>
+                        <li>✅ Retorno com laudo e plano personalizado</li>
                     </ul>
-                    <button onclick="comprarPlanoPremium(event)" class="plan-button premium-button">Escolher Este Plano</button>
+                    <p style="font-style: italic; color: var(--dark-gray); font-size: 0.9rem; margin-bottom: 20px;">
+                        Ideal para: insônia crônica, estresse, acompanhamento terapêutico.
+                    </p>
+                    <a href="/formulario.html?plan=premium" class="plan-button premium-button" style="text-decoration: none; color: white; display: block; text-align: center;">Escolher Este Plano</a>
                 </div>
+            </div>
+            
+            <!-- Pagamento presencial -->
+            <div style="text-align: center; margin-top: 40px;" data-aos="fade-up" data-aos-delay="500">
+                <p style="color: var(--dark-gray); font-size: 1rem;">
+                    💳 Você também pode realizar o pagamento presencialmente via cartão de crédito em nossa unidade.
+                </p>
             </div>
         </div>
     </section>
@@ -1482,152 +1722,29 @@
         </div>
     </section>
 
-    <!-- Form Section -->
-    <section class="form-section" id="formulario">
-        <div class="container">
-            <h2 class="section-title" style="color: white;" data-aos="fade-up">Formulário de Pré-Anamnese</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="100">
-                Preencha os dados abaixo para que nossa equipe entre em contato com você
-                <br><small>(seus dados são protegidos pela LGPD)</small>
-            </p>
-            
-            <div class="form-container" data-aos="fade-up" data-aos-delay="200">
-                <form id="sleepForm">
-                    <h3 style="color: var(--primary-purple); margin-bottom: 20px;">👤 DADOS PESSOAIS</h3>
-                    
-                    <div class="form-group">
-                        <label for="nome">Nome completo *</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="nascimento">Data de nascimento *</label>
-                        <input type="date" id="nascimento" name="nascimento" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="idade">Idade *</label>
-                        <input type="number" id="idade" name="idade" min="18" max="100" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="genero">Gênero *</label>
-                        <select id="genero" name="genero" required>
-                            <option value="">Selecione...</option>
-                            <option value="feminino">Feminino</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="whatsapp">WhatsApp *</label>
-                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="endereco">Endereço completo *</label>
-                        <textarea id="endereco" name="endereco" rows="3" placeholder="Rua, Número, Bairro, Cidade, Estado" required></textarea>
-                    </div>
 
-                    <h3 style="color: var(--primary-purple); margin: 40px 0 20px;">🛌 SINTOMAS RELACIONADOS AO SONO</h3>
-                    
-                    <div class="form-group">
-                        <label>Você apresenta algum dos sintomas abaixo? (marque os que se aplicam):</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ronco" name="sintomas[]" value="ronco">
-                                <label for="ronco">Ronco</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="paradas" name="sintomas[]" value="paradas">
-                                <label for="paradas">Paradas respiratórias</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="cansaco" name="sintomas[]" value="cansaco">
-                                <label for="cansaco">Cansaço durante o dia</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="dor-cabeca" name="sintomas[]" value="dor-cabeca">
-                                <label for="dor-cabeca">Dor de cabeça ao acordar</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="boca-seca" name="sintomas[]" value="boca-seca">
-                                <label for="boca-seca">Boca seca ao despertar</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="insonia" name="sintomas[]" value="insonia">
-                                <label for="insonia">Insônia</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="horas-sono">Quantas horas dorme por noite, em média? *</label>
-                        <input type="number" id="horas-sono" name="horas-sono" min="3" max="12" step="0.5" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="sono-reparador">Você sente que seu sono é reparador? *</label>
-                        <select id="sono-reparador" name="sono-reparador" required>
-                            <option value="">Selecione...</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                            <option value="as-vezes">Às vezes</option>
-                        </select>
-                    </div>
-
-                    <h3 style="color: var(--primary-purple); margin: 40px 0 20px;">💬 OBJETIVO DA AVALIAÇÃO</h3>
-                    
-                    <div class="form-group">
-                        <label for="motivacao">Qual sua principal motivação para buscar esta avaliação? *</label>
-                        <textarea id="motivacao" name="motivacao" rows="3" required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="plano">Qual plano deseja contratar? *</label>
-                        <select id="plano" name="plano" required>
-                            <option value="">Selecione...</option>
-                            <option value="basico">🩺 Exame + Laudo (R$ 290,00)</option>
-                            <option value="completo">🌟 Completo + Bônus (R$ 490,00) - MAIS POPULAR</option>
-                            <option value="premium">💤 Completo + Comparativo de Duas Noites (R$ 590,00)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="autorizacao" name="autorizacao" required>
-                            <label for="autorizacao">Autorizo o envio de informações, orientações terapêuticas e conteúdos educativos da clínica via WhatsApp e e-mail. *</label>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">
-                        Enviar Formulário e Garantir Minha Vaga
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <h3>Holozonic - Clínica Integrada em Saúde Humana</h3>
-            <div class="image-container" style="margin: 20px 0;">
-                <img src="img/biologix.png" alt="Tecnologia Biologix - Parceria para exames de polissonografia domiciliar com alta precisão e qualidade" style="max-width: 200px; height: auto; border-radius: 0; opacity: 0.8;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
+                <div>
+                    <h3 style="color: var(--gold); font-size: 1.5rem; margin-bottom: 10px;">Clínica Holozonic</h3>
+                    <p style="font-size: 1rem; opacity: 0.9;">Clínica Integrada em Saúde Humana</p>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Especialistas em Exames de Sono Domiciliares</p>
+                </div>
+                <div class="image-container" style="margin: 0;">
+                    <img src="img/biologix.png" alt="Tecnologia Biologix - Parceria para exames de polissonografia domiciliar com alta precisão e qualidade" style="max-width: 150px; height: auto; border-radius: 0; opacity: 0.8;">
+                </div>
             </div>
             <div class="footer-links">
                 <a href="#politica">Política de Privacidade</a>
                 <a href="#termos">Termos de Uso</a>
                 <a href="#contato">Contato</a>
+                <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20exame%20do%20sono!" target="_blank">WhatsApp</a>
             </div>
             <p>CNPJ: 00.000.000/0001-00</p>
-            <p>&copy; 2024 Holozonic. Todos os direitos reservados.</p>
+            <p>&copy; 2024 Clínica Holozonic. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -1648,55 +1765,6 @@
             once: true
         });
 
-        // Form submission
-        document.getElementById('sleepForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = {};
-            
-            // Convert FormData to object
-            for (let [key, value] of formData.entries()) {
-                if (data[key]) {
-                    if (Array.isArray(data[key])) {
-                        data[key].push(value);
-                    } else {
-                        data[key] = [data[key], value];
-                    }
-                } else {
-                    data[key] = value;
-                }
-            }
-            
-            // Simple validation
-            const requiredFields = ['nome', 'email', 'whatsapp', 'plano'];
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!data[field]) {
-                    isValid = false;
-                    document.getElementById(field).style.borderColor = 'red';
-                } else {
-                    document.getElementById(field).style.borderColor = '#e0e0e0';
-                }
-            });
-            
-            if (!isValid) {
-                alert('Por favor, preencha todos os campos obrigatórios.');
-                return;
-            }
-            
-            // Success message
-            alert('Formulário enviado com sucesso! Nossa equipe entrará em contato em breve.');
-            
-            // Reset form
-            this.reset();
-            
-            // In a real application, you would send this data to your server
-            console.log('Form data:', data);
-        });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1709,33 +1777,6 @@
                     });
                 }
             });
-        });
-
-        // Update age field when birth date changes
-        document.getElementById('nascimento').addEventListener('change', function() {
-            const birthDate = new Date(this.value);
-            const today = new Date();
-            let age = today.getFullYear() - birthDate.getFullYear();
-            const monthDiff = today.getMonth() - birthDate.getMonth();
-            
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
-            
-            document.getElementById('idade').value = age;
-        });
-
-        // WhatsApp phone number formatting
-        document.getElementById('whatsapp').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length >= 11) {
-                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-            } else if (value.length >= 7) {
-                value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
-            } else if (value.length >= 3) {
-                value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
-            }
-            e.target.value = value;
         });
 
         // Funções de pagamento Mercado Pago
@@ -1873,7 +1914,67 @@
                 button.disabled = false;
             }
         }
+
+        // Bottom CTA and WhatsApp notification functionality
+        let bottomCtaShown = false;
+        let whatsappNotificationShown = false;
+
+        function showBottomCta() {
+            const bottomCta = document.getElementById('bottomCta');
+            if (!bottomCtaShown) {
+                bottomCta.classList.add('show');
+                bottomCtaShown = true;
+            }
+        }
+
+        function showWhatsAppNotification() {
+            const notification = document.getElementById('whatsappNotification');
+            if (!whatsappNotificationShown) {
+                setTimeout(() => {
+                    notification.classList.add('show');
+                    whatsappNotificationShown = true;
+                }, 3000); // Show after 3 seconds
+            }
+        }
+
+        function closeWhatsAppNotification() {
+            const notification = document.getElementById('whatsappNotification');
+            notification.classList.remove('show');
+        }
+
+        // Scroll event listeners
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Show bottom CTA after scrolling 50% of the page
+            if (scrollPosition > windowHeight * 0.5) {
+                showBottomCta();
+            }
+            
+            // Show WhatsApp notification after scrolling 30% of the page
+            if (scrollPosition > windowHeight * 0.3) {
+                showWhatsAppNotification();
+            }
+
+            // Hide bottom CTA when near bottom of page
+            if (scrollPosition + windowHeight > documentHeight - 100) {
+                const bottomCta = document.getElementById('bottomCta');
+                bottomCta.classList.remove('show');
+            }
+        });
+
+        // Initialize notifications on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show WhatsApp notification after 10 seconds if user hasn't scrolled much
+            setTimeout(() => {
+                if (window.scrollY < window.innerHeight * 0.3) {
+                    showWhatsAppNotification();
+                }
+            }, 10000);
+        });
     </script>
-    <!-- Version: v2024-06-17-17h15m - Hero section banner and title updates -->
+    <!-- Version: v2024-06-17-17h15m - Updated with Holozonic improvements -->
 </body>
 </html> 
