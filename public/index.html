@@ -158,6 +158,102 @@
             justify-content: center;
         }
 
+        /* Sleep Quality Popup */
+        .sleep-quality-popup {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            max-width: 350px;
+            z-index: 999;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .sleep-quality-popup.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .sleep-popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+        }
+
+        .sleep-popup-close:hover {
+            color: #666;
+        }
+
+        .sleep-popup-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 12px;
+            padding-right: 30px;
+            line-height: 1.3;
+        }
+
+        .sleep-popup-text {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .sleep-popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sleep-popup-input {
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .sleep-popup-input:focus {
+            border-color: #38bdf8;
+        }
+
+        .sleep-popup-button {
+            background: #38bdf8;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sleep-popup-button:hover {
+            background: #0ea5e9;
+            transform: translateY(-1px);
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
@@ -998,6 +1094,28 @@
                 font-size: 0.8rem;
             }
 
+            /* Sleep Quality Popup mobile */
+            .sleep-quality-popup {
+                right: 15px;
+                bottom: 15px;
+                max-width: 300px;
+                padding: 20px;
+            }
+
+            .sleep-popup-title {
+                font-size: 1.1rem;
+            }
+
+            .sleep-popup-text {
+                font-size: 0.85rem;
+            }
+
+            .sleep-popup-input, 
+            .sleep-popup-button {
+                font-size: 0.85rem;
+                padding: 10px 12px;
+            }
+
             /* Interstitial CTA mobile */
             .interstitial-title {
                 font-size: 1.5rem;
@@ -1033,6 +1151,22 @@
                 height: 50px;
                 bottom: 20px;
                 right: 20px;
+            }
+
+            /* Sleep Quality Popup very small screens */
+            .sleep-quality-popup {
+                right: 10px;
+                bottom: 10px;
+                max-width: 280px;
+                padding: 18px;
+            }
+
+            .sleep-popup-title {
+                font-size: 1rem;
+            }
+
+            .sleep-popup-text {
+                font-size: 0.8rem;
             }
         }
 
@@ -1115,6 +1249,27 @@
         <div class="whatsapp-notification-text">
             💬 Está com dúvidas? Fale com a Clínica Holozonic agora mesmo!
         </div>
+    </div>
+
+    <!-- Sleep Quality Popup -->
+    <div class="sleep-quality-popup" id="sleepQualityPopup">
+        <button class="sleep-popup-close" onclick="closeSleepPopup()">×</button>
+        <div class="sleep-popup-title">😴 Você cuida bem do seu sono?</div>
+        <div class="sleep-popup-text">
+            Descubra se você está dormindo com qualidade e receba orientações exclusivas dos nossos especialistas.
+        </div>
+        <form class="sleep-popup-form" onsubmit="submitSleepEmail(event)">
+            <input 
+                type="email" 
+                class="sleep-popup-input" 
+                id="sleepEmailInput" 
+                placeholder="Digite seu e-mail" 
+                required
+            >
+            <button type="submit" class="sleep-popup-button">
+                Receber Dicas de Sono
+            </button>
+        </form>
     </div>
 
     <!-- Hero Section -->
@@ -1929,6 +2084,52 @@
             }
         });
 
+        // Sleep Quality Popup functionality
+        let sleepPopupShown = false;
+        let sleepPopupClosed = false;
+
+        function showSleepPopup() {
+            const popup = document.getElementById('sleepQualityPopup');
+            if (!sleepPopupShown && !sleepPopupClosed && !sessionStorage.getItem('sleepPopupClosed')) {
+                popup.classList.add('show');
+                sleepPopupShown = true;
+            }
+        }
+
+        function closeSleepPopup() {
+            const popup = document.getElementById('sleepQualityPopup');
+            popup.classList.remove('show');
+            sleepPopupClosed = true;
+            sessionStorage.setItem('sleepPopupClosed', 'true');
+        }
+
+        function submitSleepEmail(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('sleepEmailInput');
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+            
+            // Here you could integrate with your email service
+            console.log('Email capturado para dicas de sono:', email);
+            
+            // Show success message
+            alert('Obrigado! Em breve você receberá dicas exclusivas de sono no seu e-mail.');
+            
+            // Close popup
+            closeSleepPopup();
+        }
+
         // Initialize notifications on page load
         document.addEventListener('DOMContentLoaded', function() {
             // Show WhatsApp notification after 10 seconds if user hasn't scrolled much
@@ -1937,6 +2138,39 @@
                     showWhatsAppNotification();
                 }
             }, 10000);
+
+            // Check if popup was already closed in this session
+            if (sessionStorage.getItem('sleepPopupClosed')) {
+                sleepPopupClosed = true;
+            }
+        });
+
+        // Update scroll event listeners to include sleep popup
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Show sleep quality popup after scrolling 150px
+            if (scrollPosition > 150) {
+                showSleepPopup();
+            }
+            
+            // Show bottom CTA after scrolling 50% of the page
+            if (scrollPosition > windowHeight * 0.5) {
+                showBottomCta();
+            }
+            
+            // Show WhatsApp notification after scrolling 30% of the page
+            if (scrollPosition > windowHeight * 0.3) {
+                showWhatsAppNotification();
+            }
+
+            // Hide bottom CTA when near bottom of page
+            if (scrollPosition + windowHeight > documentHeight - 100) {
+                const bottomCta = document.getElementById('bottomCta');
+                bottomCta.classList.remove('show');
+            }
         });
     </script>
     <!-- Version: v2024-06-17-17h15m - Updated with Holozonic improvements -->
