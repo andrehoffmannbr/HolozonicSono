@@ -19,6 +19,14 @@
     {
       "source": "/img/(.*)",
       "destination": "/public/img/$1"
+    },
+    {
+      "source": "/politica-privacidade.html",
+      "destination": "/public/politica-privacidade.html"
+    },
+    {
+      "source": "/termos-uso.html",
+      "destination": "/public/termos-uso.html"
     }
   ]
 } 
